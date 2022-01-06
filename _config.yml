@@ -1,0 +1,59 @@
+title: P-society
+email: psocietyiiitbh@gmail.com
+description: We are a bunch of undergrads who like to dabble into all things in computer science from
+             web dev to machine learning and from distributed systems to blockchain,
+             helping others along the way in kick-starting their journey of becoming a developer.
+
+permalink: pretty
+github_url: https://github.com/p-society
+slack_url: https://iiit-bhcoding.slack.com/
+sourceUrl: https://github.com/p-society/p-society.github.io
+medium_url: https://medium.com/programming-society-gazette
+linkedIn_url: https://www.linkedin.com/company/p-soc/
+twitter_url: https://twitter.com/psociiit
+facebook_url: https://www.facebook.com/psocietyiiitbh/
+dribble_url: https://dribbble.com/psociiit
+
+exclude:
+  - Gemfile*
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+  - node_modules
+  - script
+  - vendor
+
+markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-octicons
+  - jekyll-readme-index
+  - jemoji
+
+collections:
+  apps:
+    output: true
+    permalink: /apps/:name/
+  contributors-app:
+    output: true
+    permalink: /contributors-app/:name/
+  trophy:
+    output: true
+  external_feed:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: apps
+    values:
+      layout: app
+  - scope:
+      path: ""
+      type: contributors-app
+    values:
+      layout: contributor
+
+branch: master

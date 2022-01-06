@@ -1,0 +1,89 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <div class="jumbotron text-center">
+        <img src="{{page.picUrl}}" alt="pic" class="img-fluid img-thumbnail rounded-circle" style="height:250px"><br><br>
+        <h3>{{page.name}}</h3>
+        <a  href="{{page.github_url}}" target="_blank" class="btn-floating btn-md waves-effect waves-light contri-github"><i class="fa fa-github fa-2x"></i></a>
+        <a href="{{page.linkedIn_url}}" target="_blank" class="btn-floating btn-md waves-effect waves-light contri-linkedIn"><i class="fa fa-linkedin fa-2x"></i></a>
+        <a href="{{page.twitter_url}}" target="_blank" class="btn-floating btn-md waves-effect waves-light contri-twitter"><i class="fa fa-twitter fa-2x"></i></a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <div class="well">
+        <h1 class="jumbotron text-center">About me</h1>
+          <div class="row">
+            <div class="col-xs-12 col-md-4">
+              <ul class="list-group">
+                <li class="list-group-item active text-center">Skills</li>
+                {% for lang in page.skills%}
+                  <li class="list-group-item">{{lang | markdownify }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="col-xs-12 col-md-8">
+              {% if page.volunteer_experience%}
+              <ul class="list-group">
+                <li class="list-group-item active text-center">Volunteer Experience</li>
+                {% for experience in page.volunteer_experience%}
+                  <li class="list-group-item">{{experience | markdownify}}</li>
+                {% endfor %}
+              </ul>
+              {%endif%}
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div> <br><br>
+  <div class="row">
+    {%if page.work_experience%}
+      <div class="col-xs-12 col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item active text-center">Work Experience</li>
+          {% for experience in page.work_experience%}
+            <li class="list-group-item">{{experience | markdownify}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {%endif%}
+
+    {%if page.speciality%}
+      <div class="col-xs-12 col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item active text-center">Speciality</li>
+          {% for speciality in page.speciality%}
+            <li class="list-group-item">{{speciality | markdownify}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {%endif%}
+  </div> <br><br>
+  {%if page.project %}
+    <div class="row img-fluid">
+      <div class="col-xs-12 col-md-12">
+        <h1>Personal Projects</h1>
+        <hr>
+        {% for projects in page.project %}
+        <div class="jumbotron">
+          <p>{{projects | markdownify}}</p>
+        </div>
+        <hr>
+        {%endfor%}
+      </div>
+    </div>
+  {%endif%}
+
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+        {{ content }}
+    </div>
+  </div>
+</div>

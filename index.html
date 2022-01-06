@@ -1,0 +1,103 @@
+---
+layout: default
+---
+<div class="explore">
+  <div class="container-lg">
+    <h2 class="text-center">Explore</h2>
+    <p class="text-center col-md-7 col-sm-10 mx-auto">
+      Check out these apps made by P-society that can help developers in great way. They're all open source and free to use on any project.
+    </p>
+    <div class="d-md-flex flex-wrap gutter flex-auto">
+      {% assign apps = site.apps %}
+      {% for app in apps limit:1 %}
+        {% include app.html app=app %}
+      {% endfor %}
+    </div>
+    <br>
+    <div class="text-center py-3">
+      <p class="lead mx-auto col-md-8">
+        Currently many are work in progress.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="contributor">
+  <div class="container-lg"></div>
+  <h2 class="text-center">Members</h2>
+  <p class="lead text-center col-md-7 col-sm-10 mx-auto">
+    These are some members of our society.
+  </p><br>
+  <div class="d-md-flex flex-wrap gutter flex-auto">
+    {% assign contributors = site.contributors-app %}
+    <div class="owl-carousel owl-theme">
+      {% for app in contributors%}
+        {% include contributor.html app=app %}
+      {% endfor %}
+    </div>
+  </div>
+  <br>
+  <div class="text-center">
+    <a href="/contributors/">
+      <button class="btn btn-outline btn-large waves-effect waves-light">
+        {% octicon telescope class:"mr-2" %}
+        See all members
+      </button>
+    </a>
+  </div>
+</div>
+
+<div class="time_line">
+  <div class="container">
+    <div class="text-center">
+      <h1 id="timeline">Achievements</h1>
+    </div>
+    {% assign achievement = site.trophy %}
+    {% for app in achievement limit:1%}
+      {% include achievement.html app=app %}
+    {% endfor %}
+  </div>
+  <div class="text-center">
+    <a href="/trophy/">
+      <button class="btn btn-outline btn-large waves-effect waves-light">
+        {% octicon telescope class:"mr-2" %}
+        See all achievements
+      </button>
+    </a>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+    autoplay: true,
+    autoplayTimeout: 3000,
+    loop:true,
+    nav:true,
+    margin:10,
+    responsive:{
+      0:{
+        items:1
+      },
+      600:{
+        items:3
+      },
+      960:{
+        items:5
+      },
+      1200:{
+        items:6
+      }
+    }
+  });
+  owl.on('mousewheel', '.owl-stage', function (e) {
+    if (e.deltaY>0) {
+      owl.trigger('next.owl');
+    } else {
+      owl.trigger('prev.owl');
+    }
+    e.preventDefault();
+  });
+});
+
+</script>
